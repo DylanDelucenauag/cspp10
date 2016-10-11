@@ -1,12 +1,12 @@
 time = input("Enter a number, no negative numbers please. ")
 time = int(time)
-x = time % 60
-y = time - x
-minutes = y / 60
-a = minutes % 60
-b = minutes - a
+to_get_sec = time % 60
+time_minus_sec = time - to_get_sec
+minutes = time_minus_sec / 60
+leftover_of_minutes = minutes % 60
+minutes_minus_leftover = minutes - leftover_of_minutes
 hours = minutes / 60
-seconds_string = str(x)
-minutes_string = str(a)
+seconds_string = str(to_get_sec)
+minutes_string = str(leftover_of_minutes)
 hours_string = str(hours)
-print (hours_string + " hours " + minutes_string + " minutes " + seconds_string + " seconds ")
+print (str(time) + " = " + (hours_string + " hours " + minutes_string + " minutes " + seconds_string + " seconds "))
