@@ -1,4 +1,5 @@
-user_choice = input("Welcome to DD bank, would you like to, Withdraw, Deposit, or Exit: ")
+print ("Welcome to DD bank.")
+user_choice = input("Would you like to Withdraw, Deposit, or Exit: ")
 money = 10000
 #while money < 0:
 #    if user_choice == ("Withdraw"):
@@ -7,9 +8,12 @@ money = 10000
 #        print ("Your balance is " + str(money))
 #        break
 while money > 0:
-    if user_choice == ("Withdraw"):
+    if user_choice == ("Withdraw") and money > 0:
         take_out = int(input("How much would you like to take out? "))
-        money = money - take_out
+        if take_out > money:
+            print ("insufficient funds")
+        else:
+            money = money - take_out
         print ("Your balance is " + str(money))
         break
     elif user_choice == ("Deposit"):
