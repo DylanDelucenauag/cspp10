@@ -2,19 +2,19 @@ import random
 #does_p1_want_to_play = input("Do you want to play Rock, Paper, Scissors?")
 #if does_p1_want_to_play == ("yes")
 
-#p1_input_rounds = input("How many rounds would you like to play?")
+    
 def get_p1_move():
     p1_move = input("Choose r for rock, p for paper, and s for scissors: ")
     if p1_move == "r":
-        return "r"
+        return "Player move = rock"
         
         
     elif p1_move == "p":
-        return "p"
+        return "Player move = paper"
         
         
     elif p1_move == "s":
-        return "s"
+        return "Player move = scissors"
         
         
     else:
@@ -24,13 +24,30 @@ def get_p1_move():
 def get_comp_move():
     comp_move = random.randint(1,3)
     if comp_move == 1:
-        return "r"
+        return "Computer move = rock"
     
+    elif comp_move == 2:
+        return "Computer move = paper"
     
+    else:
+        return "Computer move = scissors"
   
+  
+def get_rounds():
+    rounds = int(input("How many rounds do you want to play?: "))
+    rounds = rounds + 1
+    for x in range(1, rounds):
+        print 
+    
+print(get_p1_move())
+print(get_comp_move())
     
     
-print(p1_move())
+    
+    
+    
+    
+    
     
     
     
