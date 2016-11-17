@@ -33,21 +33,41 @@ def get_comp_move():
         return "Computer move = scissors"
   
   
-def get_rounds():
+#def get_rounds():
     rounds = int(input("How many rounds do you want to play?: "))
     rounds = rounds + 1
     for x in range(1, rounds):
         print 
     
-print(get_p1_move())
-print(get_comp_move())
     
+def get_round_winner(p1_move, comp_move):
+    if p1_move == "r" and comp_move == "p":
+        return "Computer won"
+        
+    elif p1_move == "r" and comp_move == "s":
+        return "Player won"
+        
+    elif p1_move == "r" and comp_move == "r":
+        return "Tie!"
+        
+    elif p1_move == "p" and comp_move == "r":
+        return "Player won"
+        
+    elif p1_move == "p" and comp_move == "s":
+        return "Computer won"
+        
+    elif p1_move == "p" and comp_move == "p":
+        return "Tie!"
+        
+    elif p1_move == "s" and comp_move == "r":
+        return "Computer won!"
+        
+    elif p1_move == "s" and comp_move == "p":
+        return "Player won!"
+        
+    elif p1_move == "s" and comp_move == "s":
+        return "Tie!"
     
-    
-    
-    
-    
-    
-    
-    
-    
+# print(get_p1_move())
+# print(get_comp_move())
+print (get_round_winner("s","p"))
