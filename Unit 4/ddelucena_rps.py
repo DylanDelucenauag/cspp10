@@ -2,71 +2,64 @@ import random
 #does_p1_want_to_play = input("Do you want to play Rock, Paper, Scissors?")
 #if does_p1_want_to_play == ("yes")
 
-pscore = 0
-cscore = 0
-ties = 0
     
 def get_p1_move():
     p1_move = input("Choose r for rock, p for paper, and s for scissors: ")
     if p1_move == "r":
-        return "Player move = rock"
-        
+        return "r"
         
     elif p1_move == "p":
-        return "Player move = paper"
-        
+        return "p"
         
     elif p1_move == "s":
-        return "Player move = scissors"
-        
+        return "s"
         
     else:
-        get_p1_move()
+        return get_p1_move()
         
 
 def get_comp_move():
     comp_move = random.randint(1,3)
     if comp_move == 1:
-        return "Computer move = rock"
+        return "r"
     
     elif comp_move == 2:
-        return "Computer move = paper"
+        return "p"
     
     else:
-        return "Computer move = scissors"
+        return "s"
   
   
 def get_rounds():
     rounds = int(input("How many rounds do you want to play?: "))
-    rounds = rounds + 1
-    for x in range(1, rounds):
-        return "4"
+    return rounds
+        
     
     
 def get_round_winner(p1_move, comp_move):
     if p1_move == "r" and comp_move == "p":
-        return comp_move
+        return "computer"
         
     elif p1_move == "r" and comp_move == "s":
-        return p1_move
+        return "player"
         
     elif p1_move == "r" and comp_move == "r":
-        return "tie!"
+        return "tie"
         
     elif p1_move == "p" and comp_move == "r":
-        return p1_move
+        return "player"
         
     elif p1_move == "p" and comp_move == "s":
-        return comp_move
+        return "computer"
         
     elif p1_move == "p" and comp_move == "p":
         return "tie"
         
     elif p1_move == "s" and comp_move == "r":
-        return comp_move
+        return "computer"
         
     elif p1_move == "s" and comp_move == "p":
-        return p1_move
+        return "player"
         
     elif p1_move == "s" and comp_move == "s":
         return "tie"
@@ -78,43 +71,53 @@ def get_full_move(shortmove):
     elif shortmove == "p":
         return "Paper"
         
-    else:
+    elif shortmove == "s":
         return "Scissors"
 
 def print_score(pscore, cscore, ties):
-    pscore == int(pscore)
-    cscore == int(cscore)
-    ties == int(ties)
     print("Player Score: {}".format(pscore))
     print("Computer Score: {}".format(cscore))
-        
-
-p1_move = get_p1_move()
-comp_move = get_comp_move()
+    print("Ties: {}".format(ties))
 
 
 def rps():
+    rounds = get_rounds()
     pscore = 0
     cscore = 0
+    ties = 0
+    for x in range(rounds):
+        
+        p1_move = get_p1_move()
+        comp_move = get_comp_move()
+        print ("Player chose {}".format(get_full_move(p1_move)))
+        print ("Computer chose {}".format(get_full_move(comp_move)))
     
-    rounds = get_rounds()
-    p1_move =get_p1_move()
-    comp_move = get_comp_move()
-    
-    print ("Player chose {}".format(get_full_move(p1_move)))
-    print ("Computer chose {}".format(get_full_move(comp_move)))
-    
-    winner = get_round_winner(p1_move, comp_move)
-    if winner == "p1_move":
-       print ("Player one")
-    elif winner == "comp_move":
-        print ("Computer won")
-    else:
-        print ("It's a tie")
-
-print (get_rounds())
-#print(get_p1_move())
-#print(get_comp_move())
-#print (get_round_winner(p1_move, comp_move))
-#print (winner)
-#print (rps())
+        winner = get_round_winner(p1_move, comp_move)
+        if winner == "player":
+            print ("Player won")
+            pscore = pscore + 1
+            print ("------------")
+        elif winner == "computer":
+            print ("Computer won")
+            cscore = cscore + 1
+            print ("------------")
+        elif winner == "tie":
+            print ("It's a tie")
+            ties = ties + 1
+        print_score(pscore, cscore, ties)
+        print ("------------")
+        
+    if pscore > cscore:
+       print ("You won!")
+    elif cscore > pscore:
+        print ("You lost!")
+    elif pscore == cscore:
+        print ("It's a tie!")
+            
+        #if pscore > cscore:
+        #    print ("The winner is {}".format())
+            
+        #print (winner)
+        
+        
+rps()
