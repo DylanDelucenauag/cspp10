@@ -26,11 +26,17 @@ def p1_bet():
         user_bank = user_bank - ask_bet
         return ask_bet
 
-def phase3():
+def phase3(dice_sum):
     dice1_phase3 = random.randint(1,6)
     dice2_phase3 = random.randint(1,6)
     dice_sum_phase3 = dice1_phase3 + dice2_phase3
-    while dice_sum_phase3 != 7:
-        print ("Rolled 2 dice: {} and {}, {} in total.".format(dice1_phase3,dice2_phase3,dice_sum_phase3))
-        return dice_sum_phase3
+    if dice_sum_phase3 != 7 or dice_sum_phase3 != dice_sum:
+        while dice_sum_phase3 != 7 or dice_sum_phase3 != dice_sum:
+            print ("Rolled 2 dice: {} and {}, {} in total.".format(dice1_phase3,dice2_phase3,dice_sum_phase3))
+            return dice_sum_phase3
+            
+    elif dice_sum_phase3 == 7:
+        return "House wins"
+        
+
 phase3()
