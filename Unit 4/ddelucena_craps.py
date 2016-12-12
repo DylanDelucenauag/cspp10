@@ -2,7 +2,7 @@ import random
 user_bank = 100
 
 print ("Welcome to Craps!")
-
+dice_sum = 0
 
 def roll2dice():
     dice1 = random.randint(1,6)
@@ -33,10 +33,14 @@ def phase3(dice_sum):
     if dice_sum_phase3 != 7 or dice_sum_phase3 != dice_sum:
         while dice_sum_phase3 != 7 or dice_sum_phase3 != dice_sum:
             print ("Rolled 2 dice: {} and {}, {} in total.".format(dice1_phase3,dice2_phase3,dice_sum_phase3))
-            return dice_sum_phase3
+            
             
     elif dice_sum_phase3 == 7:
         return "House wins"
         
+    elif dice_sum_phase3 == dice_sum:
+        return "You win"
 
-phase3()
+p1_bet()
+roll2dice()
+#phase3(dice_sum)
