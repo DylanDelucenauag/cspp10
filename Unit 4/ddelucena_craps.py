@@ -8,7 +8,15 @@ def roll2dice():
     dice1 = random.randint(1,6)
     dice2 = random.randint(1,6)
     dice_sum = dice1 + dice2
-    print ("Rolled 2 dice: {} and {}, {} in total.".format(dice1,dice2,dice_sum))
+    if dice_sum == 2 or dice_sum == 3 or dice_sum == 12:
+        print ("Rolled 2 dice: {} and {}, {} in total.".format(dice1,dice2,dice_sum))
+        print ("You lost your bet!")
+        return "Sorry you lost!"
+    elif dice_sum == 7 or dice_sum == 11:
+        return "You won"
+    else:
+        print ("Rolled 2 dice: {} and {}, {} in total.".format(dice1,dice2,dice_sum))
+        print ("Your point number is: " + str(dice_sum))
     return dice_sum
     
 def p1_bet():
@@ -33,7 +41,7 @@ def phase3(dice_sum):
     if dice_sum_phase3 != 7 or dice_sum_phase3 != dice_sum:
         while dice_sum_phase3 != 7 or dice_sum_phase3 != dice_sum:
             print ("Rolled 2 dice: {} and {}, {} in total.".format(dice1_phase3,dice2_phase3,dice_sum_phase3))
-            
+            break
             
     elif dice_sum_phase3 == 7:
         return "House wins"
@@ -43,4 +51,4 @@ def phase3(dice_sum):
 
 p1_bet()
 roll2dice()
-#phase3(dice_sum)
+phase3(dice_sum)
