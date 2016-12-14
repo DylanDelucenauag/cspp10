@@ -11,9 +11,9 @@ def roll2dice():
     if dice_sum == 2 or dice_sum == 3 or dice_sum == 12:
         print ("Rolled 2 dice: {} and {}, {} in total.".format(dice1,dice2,dice_sum))
         print ("You lost your bet!")
-        return "Sorry you lost!"
+        
     elif dice_sum == 7 or dice_sum == 11:
-        return "You won"
+        print ("You won")
     else:
         print ("Rolled 2 dice: {} and {}, {} in total.".format(dice1,dice2,dice_sum))
         print ("Your point number is: " + str(dice_sum))
