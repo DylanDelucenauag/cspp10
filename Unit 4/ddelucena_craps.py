@@ -2,18 +2,21 @@ import random
 user_bank = 100
 
 print ("Welcome to Craps!")
-dice_sum = 0
+
 
 def roll2dice():
     dice1 = random.randint(1,6)
     dice2 = random.randint(1,6)
     dice_sum = dice1 + dice2
     if dice_sum == 2 or dice_sum == 3 or dice_sum == 12:
-        print ("Rolled 2 dice: {} and {}, {} in total.".format(dice1,dice2,dice_sum))
         print ("You lost your bet!")
+        #return dice_sum
+        return "lose"
         
     elif dice_sum == 7 or dice_sum == 11:
         print ("You won")
+        #return dice_sum
+        return "win"
     else:
         print ("Rolled 2 dice: {} and {}, {} in total.".format(dice1,dice2,dice_sum))
         print ("Your point number is: " + str(dice_sum))
@@ -41,7 +44,7 @@ def phase3(dice_sum):
     if dice_sum_phase3 != 7 or dice_sum_phase3 != dice_sum:
         while dice_sum_phase3 != 7 or dice_sum_phase3 != dice_sum:
             print ("Rolled 2 dice: {} and {}, {} in total.".format(dice1_phase3,dice2_phase3,dice_sum_phase3))
-            break
+            return dice_sum_phase3
             
     elif dice_sum_phase3 == 7:
         return "House wins"
@@ -49,6 +52,13 @@ def phase3(dice_sum):
     elif dice_sum_phase3 == dice_sum:
         return "You win"
 
-p1_bet()
-roll2dice()
-phase3(dice_sum)
+def craps():
+    dice_sum = roll2dice()
+    dice_sum_phase3 = phase3(dice_sum)
+    #while dice_sum:
+    phase3(dice_sum)
+#p1_bet()
+#roll2dice()
+#phase3(dice_sum)
+
+craps()
