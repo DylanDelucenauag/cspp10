@@ -38,14 +38,17 @@ def p1_bet():
     elif ask_bet <= user_bank:
         user_bank = user_bank - ask_bet
         return ask_bet
+        
+    
 
 def phase3(dice_sum):
-    dice1_phase3 = random.randint(1,6)
-    dice2_phase3 = random.randint(1,6)
-    dice_sum_phase3 = dice1_phase3 + dice2_phase3
+    dice_sum_phase3 = roll2dice()
     if dice_sum_phase3 != 7 or dice_sum_phase3 != dice_sum:
         while dice_sum_phase3 != 7 or dice_sum_phase3 != dice_sum:
-            print ("Rolled 2 dice: {} and {}, {} in total.".format(dice1_phase3,dice2_phase3,dice_sum_phase3))
+            dice1 = random.randint(1,6)
+            dice2 = random.randint(1,6)
+            dice_sum = dice1 + dice2
+            print ("Rolled 2 dice: {} and {}, {} in total.".format(dice1,dice2,dice_sum_phase3))
             return dice_sum_phase3
             
     elif dice_sum_phase3 == 7:
