@@ -19,7 +19,6 @@ def roll2dice():
         return "win"
     else:
         print ("Rolled 2 dice: {} and {}, {} in total.".format(dice1,dice2,dice_sum))
-        print ("Your point number is: " + str(dice_sum))
         return dice_sum
 
 
@@ -39,16 +38,18 @@ def p1_bet():
         user_bank = user_bank - ask_bet
         return ask_bet
         
-    
+def point_number(dice_sum):
+    while True:
+        dice1 = random.randint(1,6)
+        dice2 = random.randint(1,6)
+        dice_sum = dice1 + dice2
+        print ("Rolled 2 dice: {} and {}, {} in total.".format(dice1,dice2,dice_sum))
+
 
 def phase3(dice_sum):
     dice_sum_phase3 = roll2dice()
     if dice_sum_phase3 != 7 or dice_sum_phase3 != dice_sum:
         while dice_sum_phase3 != 7 or dice_sum_phase3 != dice_sum:
-            dice1 = random.randint(1,6)
-            dice2 = random.randint(1,6)
-            dice_sum = dice1 + dice2
-            print ("Rolled 2 dice: {} and {}, {} in total.".format(dice1,dice2,dice_sum_phase3))
             return dice_sum_phase3
             
     elif dice_sum_phase3 == 7:
