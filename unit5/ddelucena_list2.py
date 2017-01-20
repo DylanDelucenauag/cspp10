@@ -1,28 +1,23 @@
-user_input = input("Say something anything im loneley: ")
 liste = []
-listr = []
 while True:
+    user_input = input("What number do you want?: ")
     if user_input == "sum":
-        sum(int(liste))
-        user_input = int(input("What number do you want?: "))
+        num = sum(liste)
+        print ("Your list is now {}".format(num))
         
     elif user_input == "clear":
-        listr.append(liste)
+        liste = []
         print ("Your list is now {}".format(liste))
-        user_input = int(input("What number do you want?: "))
         
     elif user_input == "print":
         print ("Your list is now {}".format(liste))
-        user_input = int(input("What number do you want?: "))
         
     elif user_input == "length":
-        print (liste).len
-        user_input = int(input("What number do you want?: "))
+        num = len(liste)
+        print(num)
         
     elif user_input == "exit":
         break
     
     else:
-        liste.append(user_input)
-        print (liste)
-        user_input = input("What number do you want?: ")
+        liste.append(int(user_input))
