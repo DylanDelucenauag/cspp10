@@ -1,10 +1,16 @@
-#Dylan and Tahj
+#Tahj and Dylan
 def replace_all(original,to_replace,replace_with):
-    to_replace = int(input("what number would you like to replace? "))
-    for element in original:
-        original.insert(to_replace)
+    for index in range(len(original)):
+        if original[index] == to_replace:
+            original[index] = replace_with
+            
+        
+    
     
 
-original = [2,5,4,7,9,1,2,7]
-replace_all(original,7,"d")
+original = [1,5,4,1,3,1,2,6]
+to_replace = 1
+replace_with =8
+replace_all(original,to_replace,replace_with)
+print(original)
     
